@@ -7,6 +7,8 @@
 html,body{
     width: 100%;
     height: 100vh;
+    background: black;
+    color: white;
 }
 
 h1{
@@ -16,6 +18,8 @@ h1{
     transform: translate(-50%,-50%);
     font-size: 12vw;
     font-family: "Reval";
+    width: 100%;
+    text-align: center;
 }
 
 .header .letter{
@@ -27,81 +31,95 @@ h1{
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-color: #0f0f0f;
+    background-color: #5D5FEF;
 }
 
-.images{
+
+#logo {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    animation: fill 0.5s ease forwards 3.5s;
+  }
+  #logo path:nth-child(1) {
+    stroke-dasharray: 556.74px;
+    stroke-dashoffset: 556.74px;
+    animation: line-anim 3s ease forwards;
+  }
+  #logo path:nth-child(2) {
+    stroke-dasharray: 560.28px;
+    stroke-dashoffset: 560.28px;
+    animation: line-anim 3s ease forwards 0.3s;
+  }
+  #logo path:nth-child(3) {
+    stroke-dasharray: 428.81px;
+    stroke-dashoffset: 428.81px;
+    animation: line-anim 3s ease forwards 0.6s;
+  }
+  #logo path:nth-child(4) {
+    stroke-dasharray: 568.1px;
+    stroke-dashoffset: 568.1px;
+    animation: line-anim 3s ease forwards 0.9s;
+  }
+  #logo path:nth-child(5) {
+    stroke-dasharray: 490.2px;
+    stroke-dashoffset: 490.2px;
+    animation: line-anim 3s ease forwards 1.2s;
+  }
+  #logo path:nth-child(6) {
+    stroke-dasharray: 280.77px;
+    stroke-dashoffset: 280.77px;
+    animation: line-anim 3s ease forwards 1.5s;
+  }
+  
+  @keyframes line-anim {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes fill {
+    from {
+      fill: transparent;
+    }
+    to {
+      fill: #5D5FEF;
+    }
+  }
+  .preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
     display: flex;
-}
-
-.img{
-    width: 140px;
-    height: 180px;
-    background: darkblue;
-    filter: grayscale(1);
-    opacity: 0.6;
-}
-
-.img-1{
-    transform: scale(1);
-    background: url(/images/img-1.png) 50% 50% no-repeat;
-    background-size: cover;
-}
-
-.img-2 {
-	transform: scale(1.4);
-	background: url(/images/img-2.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-3 {
-	transform: scale(1.2);
-	background: url(/images/img-3.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-4 {
-	transform: scale(0.9);
-	background: url(/images/img-4.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-5 {
-	transform: scale(1.2);
-	background: url(/images/img-5.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-6 {
-	transform: scale(1);
-	background: url(/images/img-6.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-7 {
-	transform: scale(1.1);
-	background: url(/images/img-7.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.img-8 {
-	transform: scale(0.9);
-	background: url(/images/img-8.png) 50% 50% no-repeat;
-	background-size: cover;
-}
-
-.navbar {
-	position: absolute;
-	bottom: 40px;
-	width: 100%;
-	margin: 20px auto;
-	display: flex;
-	justify-content: space-around;
-	color: #fff;
-	font-family: "Neue Montreal", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-}
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    z-index: 10;
+    transition: all 0.5s ease;
+    animation: removePreloader 0.5s ease;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+  }
+  #logo {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  @keyframes removePreloader {
+    from {
+      height: 100vh;
+      opacity: 1;
+      pointer-events: all;
+    }
+    to {
+        height: 0vh;
+      opacity: 1;
+      pointer-events: none;
+    }
+  }
+  @media(max-width: 800px){
+      h1{
+          font-size: 20vw;
+      }
+  }
