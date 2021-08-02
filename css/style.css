@@ -36,7 +36,7 @@ h1{
 
 
 #logo {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -79,11 +79,15 @@ h1{
     }
   }
   @keyframes fill {
-    from {
+    0% {
       fill: transparent;
     }
-    to {
+    80% {
       fill: #5D5FEF;
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
     }
   }
   .preloader {
